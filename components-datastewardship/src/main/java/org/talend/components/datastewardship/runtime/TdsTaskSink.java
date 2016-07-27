@@ -17,12 +17,12 @@ import org.talend.components.api.component.runtime.Sink;
 import org.talend.components.api.component.runtime.WriteOperation;
 import org.talend.components.api.container.RuntimeContainer;
 import org.talend.components.api.properties.ComponentProperties;
-import org.talend.components.datastewardship.tdatastewardshiptaskoutput.TDataStewardshipOutputProperties;
+import org.talend.components.datastewardship.tdatastewardshiptaskoutput.TDataStewardshipTaskOutputProperties;
 
 /**
  * TDS Task {@link Sink}
  */
-public class TdsTaskSink extends TdsTaskSourceOrSink implements Sink {
+public class TdsTaskSink extends TdsSourceOrSink implements Sink {
 
     private static final long serialVersionUID = -7153395345785814016L;
 
@@ -75,7 +75,7 @@ public class TdsTaskSink extends TdsTaskSourceOrSink implements Sink {
     @Override
     public void initialize(RuntimeContainer container, ComponentProperties properties) {
         super.initialize(container, properties);
-        TDataStewardshipOutputProperties outputProperties = (TDataStewardshipOutputProperties) properties;
+        TDataStewardshipTaskOutputProperties outputProperties = (TDataStewardshipTaskOutputProperties) properties;
         schema = outputProperties.schema.schema.getValue();
         campaignName = outputProperties.campaign.campaignName.getValue();
         campaignType = outputProperties.campaign.campaignType.getValue().getValue();

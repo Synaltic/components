@@ -34,13 +34,13 @@ import org.talend.daikon.properties.ValidationResult.Result;
 /**
  * TDS Server {@link SourceOrSink}
  */
-public class TdsTaskSourceOrSink implements SourceOrSink {
+public class TdsSourceOrSink implements SourceOrSink {
 
     private static final long serialVersionUID = -1780693801850579840L;
 
-    private static final Logger LOG = LoggerFactory.getLogger(TdsTaskSourceOrSink.class);
+    private static final Logger LOG = LoggerFactory.getLogger(TdsSourceOrSink.class);
 
-    private static final I18nMessages messages = GlobalI18N.getI18nMessageProvider().getI18nMessages(TdsTaskSourceOrSink.class);
+    private static final I18nMessages messages = GlobalI18N.getI18nMessageProvider().getI18nMessages(TdsSourceOrSink.class);
     
     /**
      * Host and port of TDS server. E.g. "http://localhost:8080"

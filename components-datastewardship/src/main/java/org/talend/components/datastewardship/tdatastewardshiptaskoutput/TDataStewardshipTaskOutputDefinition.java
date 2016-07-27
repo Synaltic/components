@@ -26,8 +26,8 @@ import aQute.bnd.annotation.component.Component;
 /**
  * Data Stewardship Task output component definition
  */
-@Component(name = Constants.COMPONENT_BEAN_PREFIX + TDataStewardshipOutputDefinition.COMPONENT_NAME, provide = ComponentDefinition.class)
-public class TDataStewardshipOutputDefinition extends TdsDefinition implements OutputComponentDefinition {
+@Component(name = Constants.COMPONENT_BEAN_PREFIX + TDataStewardshipTaskOutputDefinition.COMPONENT_NAME, provide = ComponentDefinition.class)
+public class TDataStewardshipTaskOutputDefinition extends TdsDefinition implements OutputComponentDefinition {
 
     /**
      * Data Stewardship Task output component name
@@ -37,7 +37,7 @@ public class TDataStewardshipOutputDefinition extends TdsDefinition implements O
     /**
      * Constructor sets component name
      */
-    public TDataStewardshipOutputDefinition() {
+    public TDataStewardshipTaskOutputDefinition() {
         super(COMPONENT_NAME);
     }
 
@@ -54,7 +54,7 @@ public class TDataStewardshipOutputDefinition extends TdsDefinition implements O
      */
     @Override
     public Class<? extends ComponentProperties> getPropertyClass() {
-        return TDataStewardshipOutputProperties.class;
+        return TDataStewardshipTaskOutputProperties.class;
     }
 
     @Override
