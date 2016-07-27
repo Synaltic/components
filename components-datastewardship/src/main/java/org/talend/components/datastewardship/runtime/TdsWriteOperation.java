@@ -17,44 +17,21 @@ import java.util.Map;
 import org.talend.components.api.component.runtime.Result;
 import org.talend.components.api.component.runtime.WriteOperation;
 import org.talend.components.api.container.RuntimeContainer;
-import org.talend.components.datastewardship.runtime.writer.TdsTaskWriter;
 
 /**
- * TDS Task {@link WriteOperation}
+ * TDS {@link WriteOperation}
  */
-public class TdsTaskWriteOperation extends TdsWriteOperation {
+public abstract class TdsWriteOperation implements WriteOperation<Result> {
 
     private static final long serialVersionUID = 7034535576323944643L;
 
     /**
-     * Constructor sets {@link TdsTaskSink} instance
-     *
-     * @param sink {@link TdsTaskSink} instance
+     * {@link TdsSink} instance
      */
-    public TdsTaskWriteOperation(TdsTaskSink sink) {
-        super(sink);
-    }
+    protected final TdsSink sink;
 
-    /**
-     * Does nothing
-     *
-     * @param container {@link RuntimeContainer} instance
-     */
-    @Override
-    public void initialize(RuntimeContainer container) {
-        // nothing to be done here
-    }
-
-    /**
-     * Creates appropriate {@link TdsTaskWriter} depending on action specified by user. <br>
-     * Possible actions are: Delete, Insert, Update. <br>
-     *
-     * @param container {@link RuntimeContainer} instance
-     * @return appropriate {@link TdsTaskWriter}
-     */
-    @Override
-    public TdsTaskWriter createWriter(RuntimeContainer container) {
-        return new TdsTaskWriter(this);
+    public TdsWriteOperation(TdsSink sink) {
+        this.sink = sink;
     }
 
     /**
@@ -74,8 +51,8 @@ public class TdsTaskWriteOperation extends TdsWriteOperation {
      * @return the Sink
      */
     @Override
-    public TdsTaskSink getSink() {
-        return (TdsTaskSink) super.sink;
+    public TdsSink getSink() {
+        return sink;
     }
 
 }

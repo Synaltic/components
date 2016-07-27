@@ -22,7 +22,7 @@ import org.talend.components.datastewardship.tdatastewardshiptaskoutput.TDataSte
 /**
  * TDS Task {@link Sink}
  */
-public class TdsTaskSink extends TdsSourceOrSink implements Sink {
+public class TdsTaskSink extends TdsSink {
 
     private static final long serialVersionUID = -7153395345785814016L;
 
@@ -103,15 +103,6 @@ public class TdsTaskSink extends TdsSourceOrSink implements Sink {
      */
     public Schema getSchema() {
         return schema;
-    }
-
-    /**
-     * Getter for serialversionuid.
-     * 
-     * @return the serialversionuid
-     */
-    public static long getSerialversionuid() {
-        return serialVersionUID;
     }
 
     /**

@@ -30,7 +30,7 @@ import aQute.bnd.annotation.component.Component;
 public class TDataStewardshipTaskOutputDefinition extends TdsDefinition implements OutputComponentDefinition {
 
     /**
-     * Data Stewardship Task output component name
+     * Component name
      */
     public static final String COMPONENT_NAME = "tDataStewardshipTaskOutput";  //$NON-NLS-1$
 
@@ -57,6 +57,7 @@ public class TDataStewardshipTaskOutputDefinition extends TdsDefinition implemen
         return TDataStewardshipTaskOutputProperties.class;
     }
 
+    @SuppressWarnings("rawtypes")
     @Override
     public Property[] getReturnProperties() {
         return new Property[] { RETURN_TOTAL_RECORD_COUNT_PROP, RETURN_SUCCESS_RECORD_COUNT_PROP, RETURN_REJECT_RECORD_COUNT_PROP,

@@ -32,7 +32,7 @@ import org.talend.daikon.properties.ValidationResult;
 import org.talend.daikon.properties.ValidationResult.Result;
 
 /**
- * TDS Server {@link SourceOrSink}
+ * TDS {@link SourceOrSink}
  */
 public class TdsSourceOrSink implements SourceOrSink {
 

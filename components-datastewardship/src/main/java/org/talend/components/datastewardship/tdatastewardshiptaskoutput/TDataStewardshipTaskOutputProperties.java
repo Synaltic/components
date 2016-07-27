@@ -25,7 +25,7 @@ import org.talend.daikon.properties.Properties;
 import org.talend.daikon.properties.presentation.Form;
 
 /**
- * {@link Properties} for TDS Task output component.
+ * {@link Properties} for Data Stewardship Task output component.
  */
 public class TDataStewardshipTaskOutputProperties extends TdsProperties {
 
