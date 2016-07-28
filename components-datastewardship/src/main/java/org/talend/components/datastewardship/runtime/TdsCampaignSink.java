@@ -20,14 +20,17 @@ import org.apache.avro.Schema;
 import org.talend.components.api.component.runtime.WriteOperation;
 import org.talend.components.api.container.RuntimeContainer;
 import org.talend.components.api.properties.ComponentProperties;
-import org.talend.components.datastewardship.tdatastewardshipcampaignoutput.TDataStewardshipCampaignOutputProperties;
+import org.talend.components.datastewardship.tdatastewardshipcampaigncreate.TDataStewardshipCampaignCreateProperties;
 import org.talend.daikon.NamedThing;
 
 public class TdsCampaignSink extends TdsSink {
 
     private static final long serialVersionUID = 3228265006313531905L;
     
-    private String campaignSchema;
+    /**
+     * Data schema
+     */
+    private Schema schema;
 
     @Override
     public WriteOperation<?> createWriteOperation() {
@@ -37,8 +40,8 @@ public class TdsCampaignSink extends TdsSink {
     @Override
     public void initialize(RuntimeContainer container, ComponentProperties properties) {
         super.initialize(container, properties);
-        TDataStewardshipCampaignOutputProperties outputProperties = (TDataStewardshipCampaignOutputProperties) properties;
-        campaignSchema = outputProperties.campaignSchema.getValue();
+        TDataStewardshipCampaignCreateProperties outputProperties = (TDataStewardshipCampaignCreateProperties) properties;
+        schema = outputProperties.schema.schema.getValue();
     }
 
     @Override
@@ -51,12 +54,14 @@ public class TdsCampaignSink extends TdsSink {
         return null;
     }
     
-    public String getCampaignSchema() {
-        return campaignSchema;
-    }
-    
-    public void setCampaignSchema(String campaignSchema) {
-        this.campaignSchema = campaignSchema;
+
+    /**
+     * Returns data schema
+     * 
+     * @return data schema
+     */
+    public Schema getSchema() {
+        return schema;
     }
     
 }

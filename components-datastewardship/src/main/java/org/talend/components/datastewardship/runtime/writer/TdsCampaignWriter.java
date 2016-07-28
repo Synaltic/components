@@ -12,6 +12,8 @@
 // ============================================================================
 package org.talend.components.datastewardship.runtime.writer;
 
+import java.io.IOException;
+import org.apache.avro.generic.IndexedRecord;
 import org.talend.components.api.component.runtime.WriteOperation;
 import org.talend.components.api.component.runtime.Writer;
 import org.talend.components.datastewardship.runtime.TdsCampaignWriteOperation;
@@ -20,7 +22,6 @@ import org.talend.components.datastewardship.runtime.TdsCampaignWriteOperation;
  * TDS Campaign {@link Writer}
  */
 public class TdsCampaignWriter extends TdsWriter {
-
 
     /**
      * Constructor sets {@link WriteOperation}
@@ -41,10 +42,27 @@ public class TdsCampaignWriter extends TdsWriter {
     
     /**
      * {@inheritDoc}
+     * @throws IOException 
      */
     @Override
-    public void write(Object datum) {
+    public void write(Object datum) throws IOException {
+        if (!opened) {
+            throw new IOException("Writer wasn't opened"); //$NON-NLS-1$
+        }
         
+        if (datum == null) {
+            return;
+        }
+
+        IndexedRecord record = getFactory(datum).convertToAvro(datum);      
+        
+        String campaignSchema = record.get(0).toString().replaceAll("'", "\""); //$NON-NLS-1$//$NON-NLS-2$
+        
+        String resourceToCreate = "api/v1/campaigns/owned/"; //$NON-NLS-1$ 
+        
+        int statusCode = getConnection().post(resourceToCreate, campaignSchema);
+        
+        handleResponse(statusCode, resourceToCreate, record);       
     }
 
 }

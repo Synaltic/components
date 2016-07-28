@@ -10,7 +10,7 @@
 // 9 rue Pages 92150 Suresnes, France
 //
 // ============================================================================
-package org.talend.components.datastewardship.tdatastewardshipcampaignoutput;
+package org.talend.components.datastewardship.tdatastewardshipcampaigncreate;
 
 import org.talend.components.api.Constants;
 import org.talend.components.api.component.ComponentDefinition;
@@ -26,18 +26,18 @@ import aQute.bnd.annotation.component.Component;
 /**
  * Data Stewardship Campaign output component definition
  */
-@Component(name = Constants.COMPONENT_BEAN_PREFIX + TDataStewardshipCampaignOutputDefinition.COMPONENT_NAME, provide = ComponentDefinition.class)
-public class TDataStewardshipCampaignOutputDefinition extends TdsDefinition implements OutputComponentDefinition {
+@Component(name = Constants.COMPONENT_BEAN_PREFIX + TDataStewardshipCampaignCreateDefinition.COMPONENT_NAME, provide = ComponentDefinition.class)
+public class TDataStewardshipCampaignCreateDefinition extends TdsDefinition implements OutputComponentDefinition {
 
     /**
      * component name
      */
-    public static final String COMPONENT_NAME = "tDataStewardshipCampaignOutput";  //$NON-NLS-1$
+    public static final String COMPONENT_NAME = "tDataStewardshipCampaignCreate";  //$NON-NLS-1$
 
     /**
      * Constructor sets component name
      */
-    public TDataStewardshipCampaignOutputDefinition() {
+    public TDataStewardshipCampaignCreateDefinition() {
         super(COMPONENT_NAME);
     }
 
@@ -54,7 +54,7 @@ public class TDataStewardshipCampaignOutputDefinition extends TdsDefinition impl
      */
     @Override
     public Class<? extends ComponentProperties> getPropertyClass() {
-        return TDataStewardshipCampaignOutputProperties.class;
+        return TDataStewardshipCampaignCreateProperties.class;
     }
 
     @SuppressWarnings("rawtypes")
